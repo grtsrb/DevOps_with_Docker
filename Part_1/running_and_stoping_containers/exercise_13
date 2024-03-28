@@ -1,0 +1,11 @@
+$ docker pull devopsdockeruh/simple-web-service:ubuntu
+$ docker image ls
+REPOSITORY                          TAG       IMAGE ID       CREATED       SIZE
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   3 years ago   83MB
+$ docker run -it -d --rm --name dockeriscool devopsdockeruh/simple-web-service:ubuntu
+$ docker ps
+$ docker exec -it dockeriscool bash 
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+$ docker rm --force dockeriscool
+$ docker rmi devopsdockeruh/simple-web-service:ubuntu
+

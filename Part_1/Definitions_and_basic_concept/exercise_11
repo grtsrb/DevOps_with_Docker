@@ -1,0 +1,7 @@
+Script started on 2024-03-28 11:01:45+01:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="180" LINES="21"]
+CONTAINER ID   IMAGE      COMMAND                  CREATED              STATUS                      PORTS                                                 NAMES
+8c2840c82657   rabbitmq   "docker-entrypoint.s…"   About a minute ago   Up 59 seconds               4369/tcp, 5671-5672/tcp, 15691-15692/tcp, 25672/tcp   charming_swirles
+3731e0fbb275   nginx      "/docker-entrypoint.…"   3 minutes ago        Exited (0) 43 seconds ago                                                         vigilant_tu
+8a55573ce1d6   mongo      "docker-entrypoint.s…"   3 minutes ago        Exited (0) 43 seconds ago                                                         relaxed_wozniak
+
+Script done on 2024-03-28 11:01:45+01:00 [COMMAND_EXIT_CODE="0"]

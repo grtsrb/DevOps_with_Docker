@@ -1,0 +1,5 @@
+$ docker build . web-server
+$ docker run -d -p 127.0.0.1:3456:8080 web-server
+	
+message	"You connected to the following path: /"
+path	"/"

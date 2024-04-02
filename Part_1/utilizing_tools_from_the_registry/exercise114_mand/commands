@@ -1,0 +1,5 @@
+$ docker build . -t example_front
+$ docker build -d -p 5000:5000 example_front
+
+$ docker build . -t example_back
+$ docker build -d -p 8080:8080 example_back

@@ -1,0 +1,7 @@
+Link to Docker hub: https://hub.docker.com/r/grtalca/aibgv3
+
+This is a game for hackathon organized by student's organization BEST Novi Sad. It uses java 11, to run it:
+$ docker pull grtalca/aibgv3
+$ docker run -d --rm -p 8080:8080 grtalca/aibgv3
+$ go to http://localhost:8080 
+# enter id 179390, choose skin, save and play!

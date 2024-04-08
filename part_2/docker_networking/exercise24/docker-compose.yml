@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  example-frontend:
+    image: example-front 
+    ports:
+      - 5000:5000
+    container_name: frontend-example
+
+  example-backend:
+    image: example-back 
+    environment:
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+    ports: 
+      - 8080:8080
+    container_name: backend-example
+  
+  cache:
+    image: redis
+    restart: unless-stopped
+    volumes:
+      - cache:/data 
+    command: redis-server --save 60 1 --loglevel warning
+
+volumes:
+  cache:
+    driver: local
+

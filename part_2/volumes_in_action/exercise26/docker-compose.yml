@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  example-frontend:
+    image: example-front 
+    ports:
+      - 5000:5000
+    container_name: frontend-example
+
+  example-backend:
+    image: example-back 
+    environment:
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=nikola
+      - POSTGRES_PASSWORD=example 
+      - POSTGRES_DATABASE=postgres
+    ports: 
+      - 8080:8080
+    container_name: backend-example
+  
+  cache:
+    image: redis
+    restart: unless-stopped
+    volumes:
+      - cache:/data 
+    command: redis-server --save 60 1 --loglevel warning
+
+  db:
+    image: postgres:13.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nikola
+      POSTGRES_PASSWORD: example 
+
+volumes:
+  cache:
+    driver: local
+

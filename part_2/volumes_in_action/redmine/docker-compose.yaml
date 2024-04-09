@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  redmine:
+    image: redmine:5.1-alpine
+    container_name: redmine
+    environment:
+      - REDMINE_DB_POSTGRES=db
+      - REDMINE_DB_PASSWORD=example
+    depends_on:
+      - db
+    ports:
+      - 9999:3000
+    volumes:
+      - files:/usr/src/redmine/files
+      
+  db:
+    image: postgres:13.2-alpine
+    restart: unless-stopped
+    environment:
+       POSTGRES_PASSWORD: example
+    volumes:
+      - database:/var/lib/postgresql/data
+    container_name: db_redmine
+
+  adminer:
+    image: adminer:4
+    restart: always
+    environment: 
+      - ADMINER_DESIGN=galkaev
+      - ADMINER_DEFAULT_SERVER=db
+    ports:
+      - 8083:8080
+
+volumes:
+  database:
+  files:

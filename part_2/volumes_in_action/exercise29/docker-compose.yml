@@ -6,6 +6,8 @@ services:
     image: example-front 
     ports:
       - 5000:5000
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost/api/
     container_name: frontend-example
 
   # Backend

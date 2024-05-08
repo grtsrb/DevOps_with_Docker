@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: grtalca/course-app
+    ports: 
+      - 8080:8080
+    container_name: course_app
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=60

@@ -6,14 +6,8 @@ EXPOSE 8080
 
 COPY . .
 
-#RUN apk add build-base -> 645MB
-
-RUN apk --no-cache add make git gcc libtool musl-dev ca-certificates dumb-init 
-
-
-# Build project
-
-RUN go build && \
+RUN apk --no-cache add make git gcc libtool musl-dev ca-certificates dumb-init && \
+    go build && \
     go test ./.... && \
     adduser -D -H appuser && \
     chown appuser . && \
